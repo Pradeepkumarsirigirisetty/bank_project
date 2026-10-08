@@ -4,16 +4,16 @@
 
 using namespace std;
 
-// Module VI: Structures
+
 struct Customer {
     int accountNumber;
     string name; 
     double balance;
 };
 
-// Module II: Functions and Decision Making Statements
+
 int findCustomerIndex(vector<Customer>& bank, int accNo) {
-    // Module III / X: Traversing an array / vector
+    
     for (int i = 0; i < bank.size(); i++) {
         if (bank[i].accountNumber == accNo) {
             return i;
@@ -27,7 +27,7 @@ void addCustomer(vector<Customer>& bank) {
     cout << "Enter Account Number: ";
     cin >> accNo;
 
-    // Edge Case: Prevent duplicate account numbers
+    
     if (findCustomerIndex(bank, accNo) != -1) {
         cout << "Error: Account number already exists!\n";
         return;
@@ -43,14 +43,14 @@ void addCustomer(vector<Customer>& bank) {
     cout << "Enter Initial Balance: ";
     cin >> balance;
     
-    // Edge Case: Prevent negative starting balance
+    
     while (balance < 0) {
         cout << "Balance cannot be negative. Try again: ";
         cin >> balance;
     }
     newCustomer.balance = balance;
 
-    // Module X: STL Containers (Vectors with dynamic resizing)
+    
     bank.push_back(newCustomer); 
     cout << "Customer added successfully!\n";
 }
@@ -141,7 +141,7 @@ void withdrawMoney(vector<Customer>& bank) {
         return;
     }
     
-    // Edge case: Insufficient funds
+    
     if (amount > bank[index].balance) {
         cout << "Insufficient balance! Current Balance is " << bank[index].balance << "\n";
         return;
@@ -194,7 +194,7 @@ void sortCustomersByBalance(vector<Customer>& bank) {
     }
     
     int n = bank.size();
-    // Bubble sort algorithm 
+    
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (bank[j].balance < bank[j + 1].balance) {
